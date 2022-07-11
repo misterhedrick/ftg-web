@@ -1,0 +1,177 @@
+<mat-card class="my_card">
+  <mat-card-subtitle class="my_card_subtitle">
+    <mat-radio-group [(ngModel)]="area" aria-label="Select an option">
+      <mat-radio-button (change)="areaChanged($event)" value="Midwest">Midwest</mat-radio-button>
+      <mat-radio-button (change)="areaChanged($event)" value="Non Midwest">Non Midwest</mat-radio-button>
+    </mat-radio-group>
+  </mat-card-subtitle>
+  <mat-card-title class="my_card_title">
+    <span class="my_card_title_text">
+      Select a Country / State for {{ area }}
+    </span>
+  </mat-card-title>
+  <mat-card-content>
+    <div class="container">
+      <div class="table">
+        <div class="table_header">
+          <div class="table_header_item">
+            <h3 class="table_header_text">Country / State</h3>
+          </div>
+          <div class="table_header_item">
+            <h3 class="table_header_text">Device Type</h3>
+          </div>
+          <div class="table_header_item">
+            <h3 class="table_header_text">Number Of Devices</h3>
+          </div>
+        </div>
+        <div class="table_row" id="table_row_1">
+          <div class="county_state_selection table_row_item">
+            <mat-form-field class="table_row_item_select" appearance="fill">
+              <mat-label>Select One</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name="food">
+                <mat-option *ngFor="let loc of ftgService.locations" [value]="loc.value">
+                  {{ loc.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="device_selection table_row_item">
+            <mat-form-field class="table_row_item_select" appearance="fill">
+              <mat-label>Select One</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name="food">
+                <mat-option *ngFor="let type of ftgService.types" [value]="type.value">
+                  {{ type.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="devices table_row_item">
+            <mat-form-field class="table_row_item_input" appearance="fill">
+              <mat-label></mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table_row" id="table_row_2">
+          <div class="county_state_selection table_row_item">
+            <mat-form-field class="table_row_item_select" appearance="fill">
+              <mat-label>Select One</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name="food">
+                <mat-option *ngFor="let loc of ftgService.locations" [value]="loc.value">
+                  {{ loc.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="device_selection table_row_item">
+            <mat-form-field class="table_row_item_select" appearance="fill">
+              <mat-label>Select One</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name="food">
+                <mat-option *ngFor="let type of ftgService.types" [value]="type.value">
+                  {{ type.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="devices table_row_item">
+            <mat-form-field class="table_row_item_input" appearance="fill">
+              <mat-label></mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table_row" id="table_row_3">
+          <div class="county_state_selection table_row_item">
+            <mat-form-field class="table_row_item_select" appearance="fill">
+              <mat-label>Select One</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name="food">
+                <mat-option *ngFor="let loc of ftgService.locations" [value]="loc.value">
+                  {{ loc.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="device_selection table_row_item">
+            <mat-form-field class="table_row_item_select" appearance="fill">
+              <mat-label>Select One</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name="food">
+                <mat-option *ngFor="let type of ftgService.types" [value]="type.value">
+                  {{ type.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="devices table_row_item">
+            <mat-form-field class="table_row_item_input" appearance="fill">
+              <mat-label></mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table_row" id="table_row_4">
+          <div class="county_state_selection table_row_item">
+            <mat-form-field class="table_row_item_select" appearance="fill">
+              <mat-label>Select One</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name="food">
+                <mat-option *ngFor="let loc of ftgService.locations" [value]="loc.value">
+                  {{ loc.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="device_selection table_row_item">
+            <mat-form-field class="table_row_item_select" appearance="fill">
+              <mat-label>Select One</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name="food">
+                <mat-option *ngFor="let type of ftgService.types" [value]="type.value">
+                  {{ type.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="devices table_row_item">
+            <mat-form-field class="table_row_item_input" appearance="fill">
+              <mat-label></mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table_row" id="table_row_5">
+          <div class="county_state_selection table_row_item">
+            <mat-form-field class="table_row_item_select" appearance="fill">
+              <mat-label>Select One</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name="food">
+                <mat-option *ngFor="let loc of ftgService.locations" [value]="loc.value">
+                  {{ loc.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="device_selection table_row_item">
+            <mat-form-field class="table_row_item_select" appearance="fill">
+              <mat-label>Select One</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name="food">
+                <mat-option *ngFor="let type of ftgService.types" [value]="type.value">
+                  {{ type.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="devices table_row_item">
+            <mat-form-field class="table_row_item_input" appearance="fill">
+              <mat-label></mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>    
+  </mat-card-content>
+  <mat-divider inset></mat-divider>
+  <mat-card-actions class="card_actions">
+    <button (click)="generateTags()" class="actions_button" mat-button>Generate Number(s)</button>
+  </mat-card-actions>
+</mat-card>
+
+
+
