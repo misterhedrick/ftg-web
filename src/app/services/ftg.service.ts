@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Jurisdiction } from '../models/jurisdiction';
 import { Location } from '../models/location';
 import { Type } from '../models/type';
 
@@ -9,6 +10,7 @@ export class FtgService {
 
   locations: Location[] = [];
   types: Type[] = [];
+  jurisdictions: Jurisdiction[] = [];
   constructor() { 
     this.getLocations();
     this.getTypes();
@@ -16,9 +18,9 @@ export class FtgService {
 
   getLocations(): Location[] {
     this.locations = [
-      {value: 'steak-0', viewValue: 'Steak'},
-      {value: 'pizza-1', viewValue: 'Pizza'},
-      {value: 'tacos-2', viewValue: 'Tacos'},
+      {value: 'steak', viewValue: 'Steak'},
+      {value: 'pizza', viewValue: 'Pizza'},
+      {value: 'tacos', viewValue: 'Tacos'},
     ];
     return this.locations;
   }
@@ -32,7 +34,19 @@ export class FtgService {
     return this.types;
   }
 
-  generateTags() {
-    console.log('Going to go generate tags now');
+  getJurisdictions(): Jurisdiction[] {
+    this.jurisdictions = [
+      {value: 'volvo', viewValue: 'Volvo'},
+      {value: 'saab', viewValue: 'Saab'},
+      {value: 'mercedes', viewValue: 'Mercedes'},
+    ];
+    return this.jurisdictions;
+  }
+
+  generateMidwestTags(data: any) {
+    console.log('Going to go generate midwest tags now');
+  }
+  generateNonMidwestTags(data: any) {
+    console.log('Going to go generate non midwest tags now');
   }
 }
