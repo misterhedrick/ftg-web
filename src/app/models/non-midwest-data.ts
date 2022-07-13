@@ -1,6 +1,6 @@
 import { Jurisdiction } from "./jurisdiction";
 
-export interface NonMidwestFormData {
+export interface NonMidwestData {
     jurisdiction: string;
-    devices: number;
+    number: number;
 }

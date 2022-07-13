@@ -1,8 +1,8 @@
 import { Location } from "./location";
 import { Type } from "./type";
 
-export interface MidwestFormData {
+export interface MidwestData {
     location: string;
     type: string;
-    devices: number;
+    number: number;
 }

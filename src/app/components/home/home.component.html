@@ -1,6 +1,6 @@
 <mat-card class="my_card">
   <mat-card-subtitle class="my_card_subtitle">
-    <mat-radio-group [(ngModel)]="area" aria-label="Select an option">
+    <mat-radio-group [(ngModel)]="ftgService.area" aria-label="Select an option">
       <mat-radio-button (change)="areaChanged($event)" value="Midwest"
         >Midwest</mat-radio-button
       >
@@ -10,16 +10,16 @@
     </mat-radio-group>
   </mat-card-subtitle>
   <mat-card-title class="my_card_title">
-    <span *ngIf="area === 'Midwest'" class="my_card_title_text">
+    <span *ngIf="ftgService.area === 'Midwest'" class="my_card_title_text">
       Select a Country / State for Midwest
     </span>
-    <span *ngIf="area === 'Non Midwest'" class="my_card_title_text">
+    <span *ngIf="ftgService.area === 'Non Midwest'" class="my_card_title_text">
       Select a Jurisdiction for Non Midwest
     </span>
   </mat-card-title>
   <mat-card-content>
     <!-- Content for Midwest -->
-    <div *ngIf="area === 'Midwest'" class="container">
+    <div *ngIf="ftgService.area === 'Midwest'" class="container">
       <div class="table">
         <div class="table_header">
           <div class="table_header_item">
@@ -32,38 +32,44 @@
             <h3 class="table_header_text">Number Of Devices</h3>
           </div>
         </div>
-        <div *ngFor="let row of midwestFormDataArr" class="table_row">
+        <div *ngFor="let row of midwestDataArr" class="table_row">
           <div class="county_state_selection table_row_item">
-            <mat-form-field class="table_row_item_select" appearance="fill">
-              <mat-label>Select One</mat-label>
-              <mat-select [(ngModel)]="row.location" name="location">
-                <mat-option
-                  *ngFor="let loc of ftgService.locations"
-                  [value]="loc.value"
-                >
-                  {{ loc.viewValue }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+            <span class="table_row_item_content">
+              <mat-form-field appearance="fill">
+                <mat-label>Select One</mat-label>
+                <mat-select [(ngModel)]="row.location" name="location">
+                  <mat-option
+                    *ngFor="let loc of ftgService.locations"
+                    [value]="loc.value"
+                  >
+                    {{ loc.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </span>
           </div>
           <div class="device_selection table_row_item">
-            <mat-form-field class="table_row_item_select" appearance="fill">
-              <mat-label>Select One</mat-label>
-              <mat-select [(ngModel)]="row.type" name="type">
-                <mat-option
-                  *ngFor="let type of ftgService.types"
-                  [value]="type.value"
-                >
-                  {{ type.viewValue }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+            <span class="table_row_item_content">
+              <mat-form-field appearance="fill">
+                <mat-label>Select One</mat-label>
+                <mat-select [(ngModel)]="row.type" name="type">
+                  <mat-option
+                    *ngFor="let type of ftgService.types"
+                    [value]="type.value"
+                  >
+                    {{ type.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </span>
           </div>
           <div class="devices table_row_item">
-            <mat-form-field class="table_row_item_input" appearance="fill">
-              <mat-label></mat-label>
-              <input matInput [(ngModel)]="row.devices" />
-            </mat-form-field>
+            <span class="table_row_item_content">
+              <mat-form-field appearance="fill">
+                <mat-label></mat-label>
+                <input matInput [(ngModel)]="row.number" />
+              </mat-form-field>
+            </span>
           </div>
         </div>
       </div>
@@ -71,7 +77,7 @@
     <!-- End Content for Midwest -->
 
     <!-- Content for Non Midwest -->
-    <div *ngIf="area === 'Non Midwest'" class="container">
+    <div *ngIf="ftgService.area === 'Non Midwest'" class="container">
       <div class="table">
         <div class="table_header">
           <div class="table_header_item">
@@ -81,25 +87,29 @@
             <h3 class="table_header_text">Number Of Devices</h3>
           </div>
         </div>
-        <div *ngFor="let row of nonMidwestFormDataArr" class="table_row">
+        <div *ngFor="let row of nonMidwestDataArr" class="table_row">
           <div class="county_state_selection table_row_item">
-            <mat-form-field class="table_row_item_select" appearance="fill">
-              <mat-label>Select One</mat-label>
-              <mat-select [(ngModel)]="row.jurisdiction" name="jurisdiction">
-                <mat-option
-                  *ngFor="let jur of ftgService.jurisdictions"
-                  [value]="jur.value"
-                >
-                  {{ jur.viewValue }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+            <span class="table_row_item_content">
+              <mat-form-field appearance="fill">
+                <mat-label>Select One</mat-label>
+                <mat-select [(ngModel)]="row.jurisdiction" name="jurisdiction">
+                  <mat-option
+                    *ngFor="let jur of ftgService.jurisdictions"
+                    [value]="jur.value"
+                  >
+                    {{ jur.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </span>
           </div>
           <div class="devices table_row_item">
-            <mat-form-field class="table_row_item_input" appearance="fill">
-              <mat-label></mat-label>
-              <input matInput [(ngModel)]="row.devices" />
-            </mat-form-field>
+            <span class="table_row_item_content">
+              <mat-form-field appearance="fill">
+                <mat-label></mat-label>
+                <input matInput [(ngModel)]="row.number" />
+              </mat-form-field>
+            </span>
           </div>
         </div>
       </div>

@@ -1,0 +1,101 @@
+<mat-card class="my_card">
+  <mat-card-title class="my_card_title">
+    <span class="my_card_title_text"> Device Numbers </span>
+  </mat-card-title>
+  <mat-card-content>
+    <!-- Midwest Tags -->
+    <div *ngIf="ftgService.area === 'Midwest'" class="container">
+        <div class="table">
+          <div class="table_header">
+            <div class="table_header_item">
+              <h3 class="table_header_text">Country / State</h3>
+            </div>
+            <div class="table_header_item">
+                <h3 class="table_header_text">Device Type</h3>
+              </div>
+            <div class="table_header_item">
+              <h3 class="table_header_text">Device Number</h3>
+            </div>
+            <div class="table_header_item">
+              <h3 class="table_header_text">Regenerate</h3>
+            </div>
+          </div>
+          <div
+            *ngFor="let tag of ftgService.midwestTagDataArr"
+            class="table_row"
+          >
+            <div class="table_row_item">
+              <span class="table_row_item_content">
+                {{ tag.location }}
+              </span>
+            </div>
+            <div class="table_row_item">
+                <div class="table_row_item_content">
+                  {{ tag.type }}
+                </div>
+              </div>
+            <div class="table_row_item">
+              <div class="table_row_item_content">
+                {{ tag.number }}
+              </div>
+            </div>
+            <div class="table_row_item">
+              <span class="table_row_item_content">
+                <button
+                  (click)="regenerate()"
+                  class="regenerate_button"
+                  mat-button
+                >
+                  Regenerate
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Midwest Tags -->
+    <!-- Non Midwest Tags -->
+    <div *ngIf="ftgService.area === 'Non Midwest'" class="container">
+      <div class="table">
+        <div class="table_header">
+          <div class="table_header_item">
+            <h3 class="table_header_text">Jurisdiction</h3>
+          </div>
+          <div class="table_header_item">
+            <h3 class="table_header_text">Device Number</h3>
+          </div>
+          <div class="table_header_item">
+            <h3 class="table_header_text">Regenerate</h3>
+          </div>
+        </div>
+        <div
+          *ngFor="let tag of ftgService.nonMidwestTagDataArr"
+          class="table_row"
+        >
+          <div class="table_row_item">
+            <span class="table_row_item_content">
+              {{ tag.jurisdiction }}
+            </span>
+          </div>
+          <div class="table_row_item">
+            <div class="table_row_item_content">
+              {{ tag.number }}
+            </div>
+          </div>
+          <div class="table_row_item">
+            <span class="table_row_item_content">
+              <button
+                (click)="regenerate()"
+                class="regenerate_button"
+                mat-button
+              >
+                Regenerate
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Non Midwest Tags -->
+  </mat-card-content>
+</mat-card>
